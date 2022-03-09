@@ -17,6 +17,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
+                    android:id="@+id/ev_full_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Full Name"
@@ -30,6 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
+                    android:id="@+id/ev_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Username"
@@ -42,6 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
+                    android:id="@+id/ev_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
@@ -54,6 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
+                    android:id="@+id/ev_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
@@ -66,6 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
+                    android:id="@+id/ev_re_type_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Re-type Password"
@@ -75,6 +80,7 @@
                     android:ems="10"/>
             </com.google.android.material.textfield.TextInputLayout>
             <TextView
+                android:id="@+id/tv_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Gender"
@@ -82,16 +88,19 @@
                 android:layout_marginTop="10dp"
                 android:textSize="17sp"/>
             <RadioGroup
+                android:id="@+id/radio_group_btn_Gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 >
                 <RadioButton
+                    android:id="@+id/radio_btn_female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Female"
                     android:buttonTint="@color/red"/>
                 <RadioButton
+                    android:id="@+id/radio_btn_male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Male"
@@ -99,6 +108,7 @@
                     android:layout_marginStart="25dp"/>
             </RadioGroup>
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cornerRadius="45dp"

@@ -1,6 +1,6 @@
 package com.example.tamrinninthq2
 
-import android.content.SharedPreferences
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,10 +12,10 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.tamrinninthq2.databinding.FragmentRegisterBinding
 
-const val fullName="fullName"
-const val userName="userName"
-const val email="email"
-const val password="password"
+const val FullName="fullName"
+const val UserName="userName"
+const val Email="email"
+const val Password="password"
 const val Gender="gender"
 
 
@@ -34,6 +34,7 @@ class RegisterFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
           binding= FragmentRegisterBinding.inflate(layoutInflater,container,false)
+        sharedPreferences = this.activity?.getSharedPreferences("Info", Context.MODE_PRIVATE)
         initView()
         return binding.root
     }
@@ -44,16 +45,32 @@ class RegisterFragment : Fragment() {
         listOfInfo.add(binding.evEmail)
         listOfInfo.add(binding.evPassword)
         listOfInfo.add(binding.evReTypePassword)
-        register()
+        if (sharedPreferences?.getString(FullName,"")!="") {
+            setInfo()
+        }else {
+            register()
+        }
+    }
+
+    private fun setInfo() {
+        binding.evFullName.setText(sharedPreferences?.getString(FullName,""))
+        binding.evUsername.setText(sharedPreferences?.getString(UserName,""))
+        binding.evEmail.setText(sharedPreferences?.getString(Email,""))
+        binding.evPassword.setText(sharedPreferences?.getString(Password,""))
+        binding.evReTypePassword.setText(sharedPreferences?.getString(Password,""))
+        when(sharedPreferences?.getString(Gender,"")){
+            "Female"->binding.radioBtnFemale.isChecked=true
+            "Male"->binding.radioBtnMale.isChecked=true
+        }
     }
 
     private fun register() {
         binding.btnRegister.setOnClickListener {
                 if(isCheck()){
-                       val bundle= bundleOf( fullName to binding.evFullName.text.toString(),
-                           userName to binding.evUsername.text.toString(),
-                           email to binding.evEmail.text.toString(),
-                           password to binding.evPassword.text.toString(),
+                       val bundle= bundleOf( FullName to binding.evFullName.text.toString(),
+                           UserName to binding.evUsername.text.toString(),
+                           Email to binding.evEmail.text.toString(),
+                           Password to binding.evPassword.text.toString(),
                            Gender to gender)
                     findNavController().navigate(R.id.action_registerFragment_to_saveInfoFragment, bundle)
                 }
@@ -83,4 +100,5 @@ class RegisterFragment : Fragment() {
       }
       return result
   }
+
 }

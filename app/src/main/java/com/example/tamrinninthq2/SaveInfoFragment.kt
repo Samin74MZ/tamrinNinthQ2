@@ -30,10 +30,10 @@ class SaveInfoFragment : Fragment() {
     }
     private fun saveInfo(){
        val editor= sharedPreferences?.edit()
-        editor?.putString(fullName,binding.tvFullName.text.toString())
-        editor?.putString(userName,binding.tvUsername.text.toString())
-        editor?.putString(email,binding.tvEmail.text.toString())
-        editor?.putString(password,binding.tvPassword.text.toString())
+        editor?.putString(FullName,binding.tvFullName.text.toString())
+        editor?.putString(UserName,binding.tvUsername.text.toString())
+        editor?.putString(Email,binding.tvEmail.text.toString())
+        editor?.putString(Password,binding.tvPassword.text.toString())
         editor?.putString(Gender,binding.tvGenderSf.text.toString())
         editor?.apply()
       findNavController().navigate(R.id.action_saveInfoFragment_to_registerFragment)

@@ -47,6 +47,7 @@ class RegisterFragment : Fragment() {
         listOfInfo.add(binding.evReTypePassword)
         if (sharedPreferences?.getString(FullName,"")!="") {
             setInfo()
+            register()
         }else {
             register()
         }

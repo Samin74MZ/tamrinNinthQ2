@@ -94,7 +94,7 @@ class RegisterFragment : Fragment() {
           }
       }
 
-      if(binding.evPassword.toString()!=binding.evReTypePassword.toString()){
+      if(binding.evPassword.text.toString()!= binding.evReTypePassword.text.toString()){
           binding.evReTypePassword.error="Password is not match!"
           result=false
       }
